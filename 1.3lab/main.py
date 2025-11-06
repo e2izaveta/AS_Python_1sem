@@ -1,17 +1,3 @@
-Сумма ряда 1 - x + x² - x³ + ... + (-1)ⁿxⁿ
-def task14():
-    n = int(input("n = "))
-    x = float(input("x = "))
-    total = 1  # начинаем с 1 (первый член)
-    
-    print("1")  # первый член
-    for i in range(1, n + 1):
-        sign = -1 if i % 2 == 1 else 1
-        term = sign * (x ** i)
-        total += term
-        print(f"{'+' if sign > 0 else '-'}{x}^{i} = {term:.6f}")
-    print(f"Сумма = {total:.6f}")
-
 # 15. Сумма ряда x - x³/3 + x⁵/5 - ... + (-1)ⁿx²ⁿ⁺¹/(2n+1)
 def task15():
     n = int(input("n = "))
