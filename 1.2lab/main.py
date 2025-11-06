@@ -1,157 +1,84 @@
-# 1. Вывести число K N раз
-def task1():
-    K = int(input("K = "))
-    N = int(input("N = "))
-    for _ in range(N):
-        print(K)
+# 1. Вывести K N раз
+K, N = 5, 3
+print("1.", *[K for _ in range(N)])
 
-# 2. Числа от A до B включительно в порядке возрастания
-def task2():
-    A = int(input("A = "))
-    B = int(input("B = "))
-    count = 0
-    for i in range(A, B + 1):
-        print(i)
-        count += 1
-    print(f"N = {count}")
+# 2. Числа от A до B включительно
+A, B = 2, 5
+numbers = list(range(A, B + 1))
+print("2.", *numbers, f"Количество: {len(numbers)}")
 
-# 3. Числа между A и B в порядке убывания (исключая A и B)
-def task3():
-    A = int(input("A = "))
-    B = int(input("B = "))
-    count = 0
-    for i in range(B - 1, A, -1):
-        print(i)
-        count += 1
-    print(f"N = {count}")
+# 3. Числа между A и B в порядке убывания
+A, B = 2, 7
+numbers = list(range(B - 1, A, -1))
+print("3.", *numbers, f"Количество: {len(numbers)}")
 
-# 4. Таблица стоимости товара
-def task4():
-    price = 20.4
-    print("Кол-во | Стоимость")
-    print("------------------")
-    for i in range(1, 11):
-        cost = i * price
-        print(f"{i:6} | {cost:9.2f}")
+# 4. Таблица стоимости
+price = 20.4
+print("4.")
+for i in range(1, 11):
+    print(f"   {i} шт: {i * price:.1f} руб")
 
-# 5. Квадраты чисел от A до B с шагом H
-def task5():
-    A = int(input("A = "))
-    B = int(input("B = "))
-    H = int(input("H = "))
-    for i in range(A, B + 1, H):
-        print(f"{i}^2 = {i**2}")
+# 5. Квадраты чисел с шагом H
+A, B, H = 1, 10, 2
+print("5.")
+for i in range(A, B + 1, H):
+    print(f"   {i}² = {i**2}")
 
-# 6. Положительные числа от A до B с шагом H
-def task6():
-    A = int(input("A = "))
-    B = int(input("B = "))
-    H = int(input("H = "))
-    for i in range(A, B + 1, H):
-        if i > 0:
-            print(i)
+# 6. Положительные числа с шагом H
+A, B, H = -3, 8, 2
+print("6.", *[i for i in range(A, B + 1, H) if i > 0])
 
 # 7. Сумма чисел от A до B
-def task7():
-    A = int(input("A = "))
-    B = int(input("B = "))
-    total = 0
-    for i in range(A, B + 1):
-        total += i
-    print(f"Сумма = {total}")
+A, B = 1, 5
+total = sum(range(A, B + 1))
+print("7.", total)
 
 # 8. Произведение чисел от A до B
-def task8():
-    A = int(input("A = "))
-    B = int(input("B = "))
-    product = 1
-    for i in range(A, B + 1):
-        product *= i
-    print(f"Произведение = {product}")
+A, B = 1, 4
+product = 1
+for i in range(A, B + 1):
+    product *= i
+print("8.", product)
 
-# 9. Сумма квадратов чисел от A до B
-def task9():
-    A = int(input("A = "))
-    B = int(input("B = "))
-    total = 0
-    for i in range(A, B + 1):
-        total += i**2
-    print(f"Сумма квадратов = {total}")
+# 9. Сумма квадратов
+A, B = 1, 3
+total = sum(i**2 for i in range(A, B + 1))
+print("9.", total)
 
-# 10. Стоимость конфет от 1.2 до 2 кг
-def task10():
-    price = float(input("Цена за 1 кг: "))
-    weight = 1.2
-    print("Вес (кг) | Стоимость")
-    print("-------------------")
-    while weight <= 2.01:  # 2.01 для учета погрешности
-        cost = weight * price
-        print(f"{weight:8.1f} | {cost:9.2f}")
-        weight += 0.2
+# 10. Стоимость конфет
+price = 150
+print("10.")
+weight = 1.2
+while weight <= 2:
+    print(f"   {weight} кг: {weight * price:.1f} руб")
+    weight += 0.2
 
-# 11. Квадрат числа как сумма нечетных чисел
-def task11():
-    N = int(input("N = "))
-    square = 0
-    for i in range(1, 2*N, 2):
-        square += i
-    print(f"{N}^2 = {square}")
+# 11. Квадрат как сумма нечетных
+N = 4
+square = sum(range(1, 2*N, 2))
+print("11.", f"{N}² = {square}")
 
-# 12. Степени числа A от 1 до N
-def task12():
-    A = float(input("A = "))
-    N = int(input("N = "))
-    for i in range(1, N + 1):
-        print(f"{A}^{i} = {A**i}")
+# 12. Степени числа A
+A, N = 2, 5
+print("12.", *[f"{A}^{i}={A**i}" for i in range(1, N + 1)])
 
-# 13. Наибольшее K, где K² ≤ N
-def task13():
-    N = int(input("N = "))
-    K = 0
-    while (K + 1)**2 <= N:
-        K += 1
-    print(f"K = {K}")
+# 13. Наибольшее K: K² ≤ N
+N = 17
+K = 0
+while (K + 1)**2 <= N:
+    K += 1
+print("13.", K)
 
-# 14. Наибольшее K, где 3^K < N
-def task14():
-    N = int(input("N = "))
-    K = 0
-    power = 1
-    while power * 3 < N:
-        power *= 3
-        K += 1
-    print(f"K = {K}")
+# 14. Наибольшее K: 3^K < N
+N = 100
+K, power = 0, 1
+while power * 3 < N:
+    power *= 3
+    K += 1
+print("14.", K)
 
-# 15. Разбиение отрезка [A, B] на N равных частей
-def task15():
-    A = float(input("A = "))
-    B = float(input("B = "))
-    N = int(input("N = "))
-    
-    H = (B - A) / N
-    print(f"H = {H:.6f}")
-    
-    print("Точки разбиения:")
-    for i in range(N + 1):
-        point = A + i * H
-        print(f"{point:.6f}")
-
-# Демонстрация всех задач
-def main():
-    tasks = {
-        1: task1, 2: task2, 3: task3, 4: task4, 5: task5,
-        6: task6, 7: task7, 8: task8, 9: task9, 10: task10,
-        11: task11, 12: task12, 13: task13, 14: task14, 15: task15
-    }
-    
-    print("Выберите задачу (1-15):")
-    choice = int(input())
-    
-    if choice in tasks:
-        print(f"\n=== ЗАДАЧА {choice} ===")
-        tasks[choice]()
-    else:
-        print("Неверный выбор")
-
-if name == "__main__":
-    main()
+# 15. Разбиение отрезка
+A, B, N = 0, 10, 5
+H = (B - A) / N
+points = [A + i * H for i in range(N + 1)]
+print("15.", f"H = {H}", *points)
