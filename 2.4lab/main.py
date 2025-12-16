@@ -1,4 +1,4 @@
-#15
+# 15
 # а) Функция change_case
 def change_case(strings, to_upper=False):
     if to_upper:
