@@ -1,3 +1,4 @@
+# 15
 # Читаем исходный файл
 with open('input.txt', 'r') as f:
     lines = f.readlines()
